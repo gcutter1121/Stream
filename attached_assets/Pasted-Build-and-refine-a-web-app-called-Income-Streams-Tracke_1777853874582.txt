@@ -1,0 +1,182 @@
+Build and refine a web app called "Income Streams Tracker".
+
+Goal:
+Create a clean, modern, and fast personal finance-style app that helps users track multiple income streams, stay motivated, and understand their earnings clearly. The app should feel simple, premium, and highly usable—NOT like a spreadsheet or overly complex finance tool.
+
+---
+
+CORE TERMINOLOGY UPDATE
+
+* Replace all "Side Hustle" or "Hustle" references with "Income Stream"
+
+Examples:
+
+* Add Income Stream
+* Income Stream Breakdown
+* Top Income Stream
+
+---
+
+CORE FEATURES (KEEP SIMPLE & FAST)
+
+1. Income Streams
+
+* Users can create Income Streams (e.g., "Reselling", "Freelance", "DoorDash")
+
+2. Ultra-Fast Income Logging (PRIORITY)
+
+* Log income in 2–3 clicks max
+* Fields:
+
+  * Amount ($)
+  * Income Stream (default last used)
+  * Date (default today)
+* Include quick-add buttons:
+
+  * +$10, +$20, +$50 to last used stream
+* Logging must feel instant and frictionless
+
+3. Dashboard (Clean Finance Style)
+
+* Large total income at top (primary focus)
+* Weekly vs last week comparison (% change)
+* Top performing Income Stream highlight
+* Simple insights (1 line max each)
+* Recent transactions list
+
+---
+
+EXCEL-LIKE FUNCTIONALITY (LIGHTWEIGHT, NOT COMPLEX)
+
+Add a "Transactions" or "All Entries" view with spreadsheet-style behavior:
+
+1. Editable Table View:
+
+* Display all income entries in a clean table:
+
+  * Date
+  * Income Stream
+  * Amount
+* Allow inline editing (click and edit directly)
+* Save changes instantly without extra steps
+
+2. Sorting:
+
+* Sort by:
+
+  * Date (newest/oldest)
+  * Amount (high/low)
+  * Income Stream
+
+3. Filtering:
+
+* Filter by:
+
+  * Income Stream
+  * Time range (this week, this month)
+
+IMPORTANT:
+
+* Keep this lightweight (NOT a full spreadsheet system)
+* No formulas or advanced grid tools
+
+---
+
+MOTIVATION SYSTEM (GAMIFICATION)
+
+* Weekly or monthly goals with progress bar
+
+* Show remaining amount (e.g., “$75 to go”)
+
+* Streak system (days income is logged)
+
+* Personal milestones:
+
+  * First $100, $500, $1000 earned
+  * First 7-day streak
+  * Best day ever
+  * Multiple Income Streams created
+
+* Milestones should feel subtle and premium (not childish)
+
+* Use gold accent only for achievements
+
+---
+
+INSIGHTS (SIMPLE & USEFUL)
+
+* Top Income Stream
+* Weekly performance trend
+* Average income per entry or day
+* Short, 1-line insights only
+
+---
+
+UI / DESIGN REQUIREMENTS
+
+* Clean, modern, premium finance-style UI
+
+* Dark mode by default (charcoal, not pure black)
+
+* Light mode included with matching structure
+
+* Primary accent: green (income, progress)
+
+* Secondary accent: subtle gold (milestones only)
+
+* Avoid copying layouts from Spotify or Robinhood
+
+* Keep design unique, minimal, and balanced
+
+---
+
+BUTTONS & ANIMATION POLISH
+
+* Remove harsh borders from buttons
+* Use soft rounded buttons with subtle shadows
+* Add hover effects:
+
+  * Slight scale-up (1.02–1.05)
+  * Smooth color transition
+  * Soft shadow increase
+
+---
+
+NAVIGATION / STRUCTURE
+
+Keep max 3 main sections:
+
+1. Dashboard
+2. Add Income
+3. Transactions (Excel-like view) OR Milestones OR Settings (keep minimal)
+
+---
+
+SETTINGS (MINIMAL)
+
+Include:
+
+* Light/Dark mode toggle
+* Reset data option
+* Optional reset goals
+
+Keep settings simple and non-cluttered.
+
+---
+
+RULES
+
+* Do NOT add complex spreadsheet features (no formulas, no multi-sheet system)
+* Do NOT add social features, accounts, or notifications
+* Do NOT clutter UI with too many stats or charts
+* Prioritize speed, clarity, and usability over feature count
+
+---
+
+PRIORITY ORDER
+
+1. Ultra-fast income logging
+2. Clean dashboard with insights
+3. Lightweight Excel-like transaction editing
+4. Gamification (goals + milestones)
+5. UI polish (buttons, animations, theme system)

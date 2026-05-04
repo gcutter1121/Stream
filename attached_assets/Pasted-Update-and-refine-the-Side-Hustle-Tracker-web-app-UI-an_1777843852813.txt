@@ -1,0 +1,131 @@
+Update and refine the "Side Hustle Tracker" web app UI and terminology.
+
+Goal:
+Make the app feel like a unique, polished finance product—not a clone of any existing app. Maintain a clean, modern dark-mode design with a money-focused aesthetic, while simplifying and refining the overall look and language.
+
+---
+
+TERMINOLOGY UPDATE
+
+* Replace all instances of:
+  "Side Hustle" → "Income Stream"
+  "Hustles" → "Income Streams"
+
+* The language should feel more professional and polished, like a finance tool rather than a casual app.
+
+Examples:
+
+* “Add Income Stream”
+* “Top Income Stream”
+* “Income Stream Breakdown”
+
+---
+
+UI STYLE REFINEMENT
+
+1. Design Direction:
+
+* Keep dark mode as the default (charcoal or dark gray, not pure black)
+* Avoid copying Spotify or Robinhood layouts directly
+* Use a more neutral, balanced design that feels like a modern finance dashboard
+
+2. Color System:
+
+* Primary background: dark gray/charcoal
+
+* Text: white and light gray
+
+* Primary accent: green (for income, progress, positive values)
+
+* Secondary accent: subtle gold (for milestones/achievements)
+
+* Optional: very subtle blue or purple for secondary UI elements
+
+* Avoid heavy gradients or overly bold/neon colors
+
+* Keep colors minimal and intentional
+
+---
+
+LAYOUT & STRUCTURE
+
+* Maintain a clean, spaced-out layout with strong visual hierarchy
+* Avoid large card stacks that resemble other apps
+* Use simple sections with clear separation:
+
+Dashboard structure:
+
+1. Top: Total Income (large, bold, centered or left-aligned)
+2. Below: Goal progress bar
+3. Middle: Income Stream breakdown (simple list or bars)
+4. Bottom: Recent transactions
+
+* Keep max 3 main sections/screens
+
+---
+
+TYPOGRAPHY & SPACING
+
+* Use clean, modern fonts
+* Large numbers for key metrics
+* Generous spacing between elements
+* Avoid cramped layouts
+
+---
+
+BUTTONS & INTERACTIONS
+
+* Keep a floating or fixed “+ Add Income” button
+* Buttons should be simple (rounded, minimal styling)
+* Avoid flashy or oversized UI elements
+
+---
+
+MOTIVATION & GAMIFICATION (REFINED)
+
+* Keep streaks, goals, and milestones
+* Make them feel subtle and mature (not playful or cartoonish)
+* Use minimal icons (e.g., small flame for streaks, small trophy for milestones)
+* Highlight achievements with gold accents (not bright colors)
+
+---
+
+INSIGHTS DISPLAY
+
+* Keep insights short and clean (1 line each)
+
+* Example:
+  “Your top income stream is Reselling”
+  “You earned 20% more this week”
+
+* Avoid cluttering the dashboard with too many stats
+
+---
+
+OVERALL FEEL
+
+The app should feel:
+
+* Clean
+* Fast
+* Focused
+* Slightly premium
+* More like a personal finance tool than a social or entertainment app
+
+---
+
+STRICT RULES
+
+* Do NOT copy layouts from Spotify or Robinhood
+* Do NOT add unnecessary UI elements
+* Do NOT overuse color or animations
+* Prioritize clarity, simplicity, and usability
+
+---
+
+PRIORITY
+
+1. Clean, unique UI
+2. Clear terminology (Income Streams)
+3. Maintain fast user experience
+4. Keep motivation features subtle

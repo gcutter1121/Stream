@@ -1,0 +1,88 @@
+Build an improved version of a web app called "Side Hustle Tracker".
+
+Goal:
+Create a simple but powerful app that helps users track income from multiple side hustles, stay motivated, and quickly understand which hustles are most effective. The app must feel faster and more engaging than a spreadsheet.
+
+Core Features:
+
+1. Side Hustles
+
+* Users can create and name hustles (e.g., "Reselling", "DoorDash")
+
+2. Income Logging (ULTRA FAST)
+
+* User can log income in under 3 seconds
+* Fields:
+
+  * Amount ($)
+  * Hustle (default to last used)
+  * Date (default to today)
+* Include “Quick Add” buttons (e.g., +$10, +$20 to last hustle)
+* Minimize clicks as much as possible
+
+3. Dashboard
+
+* Total earnings (large, prominent)
+* Earnings per hustle
+* Recent transactions
+* This week vs last week comparison
+
+4. Goals & Motivation System
+
+* User can set a weekly or monthly income goal
+* Show progress bar toward goal
+* Show remaining amount ("$75 to go")
+* Optional streak system (days user logs income)
+* Show encouraging messages (e.g., “You’re close to your goal”)
+
+5. Insights (Simple but useful)
+
+* Identify highest earning hustle
+* Show basic trends (e.g., “You earn more on weekends” if data exists)
+* Show average earnings per entry or per day
+* Keep insights short and easy to understand (1–2 lines max)
+
+6. Gamification (light and clean)
+
+* Show personal records (e.g., “Best day: $120”)
+* Milestones (e.g., “First $500 earned”)
+* Weekly summary (“You made $220 this week”)
+* Do NOT make it childish or overly flashy
+
+Design Requirements:
+
+* Minimal, modern UI (inspired by clean finance apps)
+* Mobile-first design
+* Large numbers, clear hierarchy
+* Very few screens (Dashboard, Add Income, Hustles/Goals)
+* Smooth and fast interactions
+
+User Experience:
+
+* No login required
+* User understands how to use app instantly
+* Logging income must be the easiest action in the app
+* Avoid clutter at all costs
+
+Tech Requirements:
+
+* Use React for frontend
+* Use local storage or simple backend to persist data
+* Organize code cleanly and modularly
+
+Strict Rules:
+
+* Do NOT overcomplicate features
+* Do NOT add advanced analytics, taxes, or bank integrations
+* Do NOT add unnecessary UI elements
+* Focus on speed, clarity, and usefulness
+
+Priority Order:
+
+1. Ultra-fast income logging
+2. Clear dashboard
+3. Goals + motivation
+4. Insights
+5. Gamification
+
+Only implement later features if earlier ones are working perfectly.

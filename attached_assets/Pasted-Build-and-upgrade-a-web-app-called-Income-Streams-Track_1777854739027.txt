@@ -1,0 +1,203 @@
+Build and upgrade a web app called "Income Streams Tracker".
+
+Goal:
+Create a fast, modern, and highly engaging personal finance tracker that helps users log income, understand their earnings, and stay motivated to grow their income streams. The app should feel clean, premium, and slightly addictive—like a mix of a finance app and a light gamified progress tracker.
+
+Do NOT overcomplicate the app. Prioritize simplicity, speed, and retention.
+
+---
+
+CORE TERMINOLOGY
+
+* Replace all “Side Hustle” or “Hustle” wording with “Income Stream”
+
+---
+
+CORE FEATURES
+
+1. Income Streams
+
+* Users can create Income Streams (e.g., “Freelance”, “DoorDash”, “Reselling”)
+
+2. Ultra-Fast Income Logging (CRITICAL)
+
+* Log income in 2–3 clicks max
+* Fields:
+
+  * Amount ($)
+  * Income Stream (auto-default to last used)
+  * Date (default today)
+* Add quick buttons:
+
+  * +$10, +$20, +$50
+* Add “Repeat Last Entry” button for instant duplicate logging
+
+Goal: logging income should feel instant and effortless.
+
+---
+
+3. Recurring Income Streams (NEW)
+
+* Allow users to mark Income Streams as recurring:
+
+  * Weekly
+  * Biweekly
+  * Monthly
+
+* Automatically suggest or generate expected entries based on schedule
+
+* Show upcoming expected income in a subtle section on dashboard
+
+Goal: make the app feel “smart” and reduce manual input.
+
+---
+
+4. Dashboard (Clean + Motivating)
+
+* Large total income display (primary focus)
+* Weekly vs last week comparison (% change)
+* Top Income Stream highlight
+* Simple streak counter (days logged income)
+* Short insights (1 line max each)
+
+Add subtle motivational messages:
+
+* “You’re $X away from your goal”
+* “Best week so far”
+
+---
+
+5. Transactions (Light Excel-Like View)
+
+* Clean table view of all entries:
+
+  * Date
+  * Income Stream
+  * Amount
+
+* Inline editing (click to edit directly)
+
+* Sorting:
+
+  * Date (newest/oldest)
+  * Amount (high/low)
+  * Income Stream
+
+* Filtering:
+
+  * By Income Stream
+  * By time range (week/month)
+
+Keep this lightweight—NOT a full spreadsheet system.
+
+---
+
+6. Goals + Motivation System (GAMIFIED)
+
+* Weekly/monthly income goals
+* Progress bar toward goal
+* Show remaining amount (“$75 to go”)
+
+Add gamification features:
+
+* Streaks (days in a row logging income)
+* Personal records:
+
+  * Best day ever
+  * Highest single entry
+* Milestones:
+
+  * First $100
+  * First $500
+  * First $1000
+  * 7-day streak
+  * Multiple Income Streams created
+
+Make milestones feel rewarding but minimal and premium.
+
+---
+
+7. Engagement Loop (LIGHT ADDICTION DESIGN)
+
+* Weekly auto-summary:
+
+  * Total earned
+  * % change from last week
+  * Top Income Stream
+
+* Subtle nudges:
+
+  * “You’re close to your goal”
+  * “New record achieved”
+
+* Keep feedback immediate and satisfying after each entry
+
+Goal: create a habit of daily check-ins without being annoying.
+
+---
+
+8. SETTINGS (MINIMAL)
+
+* Light/Dark mode toggle (default dark mode)
+* Reset data option
+* Optional reset goals
+
+Keep settings extremely simple and non-distracting.
+
+---
+
+UI / DESIGN REQUIREMENTS
+
+* Clean, modern, premium finance-style UI
+* Dark mode default (charcoal, not pure black)
+* Light mode supported with same structure
+* Primary color: green (income, progress, success)
+* Secondary accent: subtle gold (milestones only)
+
+Avoid copying layouts from Spotify or Robinhood—create a unique identity.
+
+---
+
+BUTTONS & ANIMATIONS
+
+* Remove harsh borders from buttons
+* Use soft rounded buttons with subtle shadows
+* Hover effects:
+
+  * Slight scale (1.02–1.05)
+  * Smooth transition
+  * Soft shadow increase
+
+Keep animations subtle and premium.
+
+---
+
+NAVIGATION
+
+Max 3 main sections:
+
+1. Dashboard
+2. Add Income
+3. Transactions OR Milestones OR Settings (keep minimal)
+
+---
+
+STRICT RULES
+
+* Do NOT add complex financial tools (taxes, banking sync, investing)
+* Do NOT overload UI with charts or stats
+* Do NOT add social features or accounts
+* Do NOT turn this into a spreadsheet app
+
+---
+
+PRIORITY ORDER
+
+1. Ultra-fast income logging + repeat entry
+2. Clean dashboard with motivation
+3. Recurring income streams
+4. Lightweight transaction table
+5. Gamification + streaks + milestones
+6. UI polish + smooth interactions
+
+Focus on making the app feel fast, rewarding, and habit-forming while staying simple.

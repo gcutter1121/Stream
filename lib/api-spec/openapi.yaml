@@ -1,0 +1,570 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: Side Hustle Tracker API
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: hustles
+    description: Side hustle management
+  - name: entries
+    description: Income entry management
+  - name: goals
+    description: Goal management
+  - name: stats
+    description: Stats and insights
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /hustles:
+    get:
+      operationId: listHustles
+      tags: [hustles]
+      summary: List all side hustles
+      responses:
+        "200":
+          description: List of hustles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Hustle"
+    post:
+      operationId: createHustle
+      tags: [hustles]
+      summary: Create a new side hustle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateHustleBody"
+      responses:
+        "201":
+          description: Created hustle
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Hustle"
+
+  /hustles/{id}:
+    patch:
+      operationId: updateHustle
+      tags: [hustles]
+      summary: Update a hustle (e.g. set recurring schedule)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateHustleBody"
+      responses:
+        "200":
+          description: Updated hustle
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Hustle"
+    delete:
+      operationId: deleteHustle
+      tags: [hustles]
+      summary: Delete a side hustle
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeleteResult"
+
+  /entries:
+    get:
+      operationId: listEntries
+      tags: [entries]
+      summary: List income entries
+      parameters:
+        - name: hustleId
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of entries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Entry"
+    post:
+      operationId: createEntry
+      tags: [entries]
+      summary: Log an income entry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateEntryBody"
+      responses:
+        "201":
+          description: Created entry
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Entry"
+
+  /entries/{id}:
+    patch:
+      operationId: updateEntry
+      tags: [entries]
+      summary: Update an income entry
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateEntryBody"
+      responses:
+        "200":
+          description: Updated entry
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Entry"
+    delete:
+      operationId: deleteEntry
+      tags: [entries]
+      summary: Delete an income entry
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeleteResult"
+
+  /reset:
+    post:
+      operationId: resetData
+      tags: [stats]
+      summary: Reset all entries and optionally goals
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ResetBody"
+      responses:
+        "200":
+          description: Reset result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeleteResult"
+
+  /summary:
+    get:
+      operationId: getSummary
+      tags: [stats]
+      summary: Get dashboard summary
+      responses:
+        "200":
+          description: Summary of earnings
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Summary"
+
+  /goals:
+    get:
+      operationId: getGoal
+      tags: [goals]
+      summary: Get current income goal
+      responses:
+        "200":
+          description: Current goal or null
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GoalResponse"
+    put:
+      operationId: setGoal
+      tags: [goals]
+      summary: Set or update income goal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SetGoalBody"
+      responses:
+        "200":
+          description: Updated goal
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Goal"
+
+  /stats:
+    get:
+      operationId: getStats
+      tags: [stats]
+      summary: Get extended stats, insights, and gamification data
+      responses:
+        "200":
+          description: Extended stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Stats"
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+
+    Hustle:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        recurring:
+          type: string
+          enum: [weekly, biweekly, monthly]
+          nullable: true
+        totalEarned:
+          type: number
+        entryCount:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - totalEarned
+        - entryCount
+        - createdAt
+
+    CreateHustleBody:
+      type: object
+      properties:
+        name:
+          type: string
+      required:
+        - name
+
+    UpdateHustleBody:
+      type: object
+      properties:
+        recurring:
+          type: string
+          enum: [weekly, biweekly, monthly]
+          nullable: true
+
+    Entry:
+      type: object
+      properties:
+        id:
+          type: integer
+        hustleId:
+          type: integer
+        hustleName:
+          type: string
+        amount:
+          type: number
+        date:
+          type: string
+          format: date
+        note:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - hustleId
+        - hustleName
+        - amount
+        - date
+        - createdAt
+
+    CreateEntryBody:
+      type: object
+      properties:
+        hustleId:
+          type: integer
+        amount:
+          type: number
+        date:
+          type: string
+          format: date
+        note:
+          type: string
+      required:
+        - hustleId
+        - amount
+        - date
+
+    Summary:
+      type: object
+      properties:
+        totalEarned:
+          type: number
+        hustleCount:
+          type: integer
+        entryCount:
+          type: integer
+        hustleBreakdown:
+          type: array
+          items:
+            $ref: "#/components/schemas/HustleBreakdown"
+        recentEntries:
+          type: array
+          items:
+            $ref: "#/components/schemas/Entry"
+        thisWeekEarned:
+          type: number
+        lastWeekEarned:
+          type: number
+      required:
+        - totalEarned
+        - hustleCount
+        - entryCount
+        - hustleBreakdown
+        - recentEntries
+        - thisWeekEarned
+        - lastWeekEarned
+
+    HustleBreakdown:
+      type: object
+      properties:
+        hustleId:
+          type: integer
+        hustleName:
+          type: string
+        totalEarned:
+          type: number
+        percentage:
+          type: number
+        entryCount:
+          type: integer
+      required:
+        - hustleId
+        - hustleName
+        - totalEarned
+        - percentage
+        - entryCount
+
+    Goal:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+          enum: [weekly, monthly]
+        amount:
+          type: number
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - type
+        - amount
+        - createdAt
+        - updatedAt
+
+    GoalResponse:
+      type: object
+      properties:
+        goal:
+          $ref: "#/components/schemas/Goal"
+        currentProgress:
+          type: number
+        percentComplete:
+          type: number
+        remaining:
+          type: number
+        motivationMessage:
+          type: string
+      required:
+        - currentProgress
+        - percentComplete
+        - remaining
+
+    SetGoalBody:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [weekly, monthly]
+        amount:
+          type: number
+      required:
+        - type
+        - amount
+
+    Stats:
+      type: object
+      properties:
+        streak:
+          type: integer
+        longestStreak:
+          type: integer
+        bestDay:
+          type: number
+        bestDayDate:
+          type: string
+        bestWeek:
+          type: number
+        milestones:
+          type: array
+          items:
+            $ref: "#/components/schemas/Milestone"
+        insights:
+          type: array
+          items:
+            $ref: "#/components/schemas/Insight"
+        weeklyEarnings:
+          type: array
+          items:
+            $ref: "#/components/schemas/WeeklyEarning"
+        avgPerEntry:
+          type: number
+        avgPerDay:
+          type: number
+        topHustle:
+          type: string
+      required:
+        - streak
+        - longestStreak
+        - bestDay
+        - milestones
+        - insights
+        - weeklyEarnings
+        - avgPerEntry
+        - avgPerDay
+
+    Milestone:
+      type: object
+      properties:
+        label:
+          type: string
+        achieved:
+          type: boolean
+        achievedAt:
+          type: string
+      required:
+        - label
+        - achieved
+
+    Insight:
+      type: object
+      properties:
+        text:
+          type: string
+        type:
+          type: string
+          enum: [positive, neutral, tip]
+      required:
+        - text
+        - type
+
+    WeeklyEarning:
+      type: object
+      properties:
+        week:
+          type: string
+        earned:
+          type: number
+      required:
+        - week
+        - earned
+
+    UpdateEntryBody:
+      type: object
+      properties:
+        hustleId:
+          type: integer
+        amount:
+          type: number
+        date:
+          type: string
+          format: date
+        note:
+          type: string
+
+    ResetBody:
+      type: object
+      properties:
+        resetGoals:
+          type: boolean
+      required: []
+
+    DeleteResult:
+      type: object
+      properties:
+        success:
+          type: boolean
+      required:
+        - success

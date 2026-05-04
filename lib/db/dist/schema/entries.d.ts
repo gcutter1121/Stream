@@ -1,0 +1,122 @@
+import { z } from "zod/v4";
+export declare const entriesTable: import("drizzle-orm/pg-core").PgTableWithColumns<{
+    name: "entries";
+    schema: undefined;
+    columns: {
+        id: import("drizzle-orm/pg-core").PgColumn<{
+            name: "id";
+            tableName: "entries";
+            dataType: "number";
+            columnType: "PgSerial";
+            data: number;
+            driverParam: number;
+            notNull: true;
+            hasDefault: true;
+            isPrimaryKey: true;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        hustleId: import("drizzle-orm/pg-core").PgColumn<{
+            name: "hustle_id";
+            tableName: "entries";
+            dataType: "number";
+            columnType: "PgInteger";
+            data: number;
+            driverParam: string | number;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        amount: import("drizzle-orm/pg-core").PgColumn<{
+            name: "amount";
+            tableName: "entries";
+            dataType: "string";
+            columnType: "PgNumeric";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        date: import("drizzle-orm/pg-core").PgColumn<{
+            name: "date";
+            tableName: "entries";
+            dataType: "string";
+            columnType: "PgDateString";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        note: import("drizzle-orm/pg-core").PgColumn<{
+            name: "note";
+            tableName: "entries";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        createdAt: import("drizzle-orm/pg-core").PgColumn<{
+            name: "created_at";
+            tableName: "entries";
+            dataType: "date";
+            columnType: "PgTimestamp";
+            data: Date;
+            driverParam: string;
+            notNull: true;
+            hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+    };
+    dialect: "pg";
+}>;
+export declare const insertEntrySchema: z.ZodObject<{
+    date: z.ZodString;
+    hustleId: z.ZodInt;
+    amount: z.ZodString;
+    note: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+}, {
+    out: {};
+    in: {};
+}>;
+export type InsertEntry = z.infer<typeof insertEntrySchema>;
+export type Entry = typeof entriesTable.$inferSelect;
+//# sourceMappingURL=entries.d.ts.map
